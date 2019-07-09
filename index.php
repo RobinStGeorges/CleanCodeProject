@@ -116,8 +116,10 @@ class Checker {
         $accumulator = 9;
         $accumulatorResult = 0;
         foreach ($values as $value) {
-            $accumulatorResult+= $value * $accumulator;
-            $accumulator--;
+			if(ctype_digit($value)){
+				$accumulatorResult += $value * $accumulator;
+				$accumulator--;
+			}
         }
         $resultat = $accumulatorResult % 11 == 0;
         return $resultat;
